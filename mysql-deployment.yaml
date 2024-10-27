@@ -19,13 +19,18 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: m
-        args:
-          - --bind_ip
-          - 0.0.0.0
+        image: 444868690040.dkr.ecr.us-east-1.amazonaws.com/clo835-assignment1-mysql-repo:v0.1
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root_password"
+        - name: MYSQL_DATABASE
+          value: "my_database"  
+        #args:
+          #- --bind_ip
+          #- 0.0.0.0
         resources:
           requests:
             cpu: 100m
             memory: 100Mi
         ports:
-        - containerPort: 27017
+        - containerPort: 3306

@@ -1,32 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend    # name of deployment in namespace
   labels:
-    app.kubernetes.io/name: g
+    app.kubernetes.io/name: employees
     app.kubernetes.io/component: frontend
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: g
+      app.kubernetes.io/name: employees
       app.kubernetes.io/component: frontend
   replicas: 3
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: g
+        app.kubernetes.io/name: employees
         app.kubernetes.io/component: frontend
     spec:
       containers:
-      - name: g
-        image: p
+      - name: webapp
+        image: 444868690040.dkr.ecr.us-east-1.amazonaws.com/clo835-assignment1-webapp-repo:v0.1
         #
         resources:
           requests:
             cpu: 100m
             memory: 100Mi
         env:
-        - name: G
-          value: d
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: DBPORT
+          value: "3306"  # Port to MySQL DB
+        - name: DBHOST
+          value: "mysql"  # name of MySQL service
+        - name: DBUSER
+          value: "root" 
+        - name: DBPASSWORD
+          value: "root_password"  # root password
         ports:
         - containerPort: 80

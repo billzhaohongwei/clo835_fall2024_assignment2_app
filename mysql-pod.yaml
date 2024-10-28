@@ -3,7 +3,6 @@ kind: Pod
 metadata:
   name: mysql  # unique name of deployment in its namespace
   labels:
-    name: mysql
     app.kubernetes.io/name: mysql
     app.kubernetes.io/component: backend
 spec:

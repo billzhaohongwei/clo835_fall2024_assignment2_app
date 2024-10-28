@@ -3,17 +3,18 @@ kind: Deployment
 metadata:
   name: frontend    # name of deployment in namespace
   labels:
+    app: employees
     app.kubernetes.io/name: employees
     app.kubernetes.io/component: frontend
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: employees
-      app.kubernetes.io/component: frontend
+      app: employees
   replicas: 3
   template:
     metadata:
       labels:
+        app: employees
         app.kubernetes.io/name: employees
         app.kubernetes.io/component: frontend
     spec:

@@ -3,17 +3,18 @@ kind: Deployment
 metadata:
   name: mysql  # unique name of deployment in its namespace
   labels:
+    app: mysql
     app.kubernetes.io/name: mysql
     app.kubernetes.io/component: backend
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: mysql
-      app.kubernetes.io/component: backend
+      app: mysql
   replicas: 1
   template:
     metadata:
       labels:
+        app: mysql
         app.kubernetes.io/name: mysql
         app.kubernetes.io/component: backend
     spec:

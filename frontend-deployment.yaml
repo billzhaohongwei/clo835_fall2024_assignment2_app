@@ -34,7 +34,7 @@ spec:
           value: "mysql"  # name of MySQL service
         - name: DBUSER
           value: "root" 
-        - name: DBPASSWORD
+        - name: DBPWD
           value: "root_password"  # root password
         ports:
-        - containerPort: 80
+        - containerPort: 8080

@@ -8,9 +8,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 80        # Service port
-    targetPort: 80  # Container port
-    nodePort: 30000 # NodePort
+  - port: 80          # Service port
+    targetPort: 8080  # Container port
+    nodePort: 30000   # NodePort
   selector:
     app.kubernetes.io/name: employees
     app.kubernetes.io/component: frontend

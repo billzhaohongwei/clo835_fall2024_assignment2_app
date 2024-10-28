@@ -3,7 +3,8 @@ kind: Pod
 metadata:
   name: frontend
   labels:
-    app: employees
+    app.kubernetes.io/name: employees
+    app.kubernetes.io/component: frontend
 spec:
   containers:
   - name: webapp
@@ -16,7 +17,7 @@ spec:
     - name: DBPORT
       value: "3306"              # MySQL service port
     - name: DBHOST
-      value: "mysql"             
+      value: "mysql"    # This is the actual MySQL service name
     - name: DBUSER
       value: "root"              
     - name: DBPWD
